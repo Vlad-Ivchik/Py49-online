@@ -21,3 +21,6 @@ sup = SuperStr('12399321')
 print(sup.is_palindrome())
 sup = SuperStr('12398321')
 print(sup.is_palindrome())
+
+
+#task5

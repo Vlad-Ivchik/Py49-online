@@ -24,3 +24,5 @@ obj.addition(3, 3)
 obj.subtraction(3, 3)
 obj.multiplication(3, 3)
 obj.division(3, 3)
+
+#task 2

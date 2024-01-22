@@ -43,3 +43,6 @@ print("Поменяем радиус сферы на", result.get_radius())
 result.set_center(1, 1, 1)
 print("Поменяем центр сферы на", result.get_center())
 print("Точка (4,2,1) внутри сферы?", result.is_point_inside(4, 2, 1))
+
+
+#task4

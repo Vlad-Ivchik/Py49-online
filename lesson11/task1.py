@@ -15,3 +15,5 @@ class Soda:
 cola = Soda('клубничным')
 
 cola.taster()
+
+#task1

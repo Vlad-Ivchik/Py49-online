@@ -29,3 +29,5 @@ print(auto.type_auto())
 print(auto.color_auto())
 print(auto.year_release())
 auto.stop_auto()
+
+#task3
