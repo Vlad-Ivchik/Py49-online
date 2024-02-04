@@ -1,4 +1,57 @@
-class Autobus:
-    def __init__(self, speed, max_place, max_speed, list_lastname, flag_empty):
+class Bus:
+    def __init__(self, speed, max_seating_capacity, max_speed):
+        self.speed = speed
+        self.max_seating_capacity = max_seating_capacity
+        self.max_speed = max_speed
+        self.passenger_list = []
+        self.available_seats = max_seating_capacity
+        self.seats_in_bus = {}
 
-        pass
+    def embark(self, *passengers):
+        for passenger in passengers:
+            if self.available_seats > 0:
+                self.passenger_list.append(passenger)
+                self.seats_in_bus[self.max_seating_capacity - self.available_seats + 1] = passenger
+                self.available_seats -= 1
+            else:
+                print("No available seats on the bus.")
+
+    def disembark(self, *passengers):
+        for passenger in passengers:
+            removed_passengers = [p for p in self.passenger_list if p == passenger]
+            if removed_passengers:
+                for p in removed_passengers:
+                    self.passenger_list.remove(p)
+                    seat = list(self.seats_in_bus.keys())[list(self.seats_in_bus.values()).index(p)]
+                    self.seats_in_bus.pop(seat, None)
+                    self.available_seats += 1
+                self._update_seats_in_bus()
+            else:
+                print(f"Passenger {passenger} not found on the bus.")
+
+    def _update_seats_in_bus(self):
+        self.seats_in_bus = {i + 1: passenger for i, passenger in enumerate(self.passenger_list)}
+
+    def increase_speed(self, value):
+        self.speed = min(self.speed + value, self.max_speed)
+
+    def decrease_speed(self, value):
+        self.speed = max(self.speed - value, 0)
+
+    def __contains__(self, passenger):
+        return passenger in self.passenger_list
+
+    def __iadd__(self, passenger):
+        self.embark(passenger)
+        return self
+
+    def __isub__(self, passenger):
+        self.disembark(passenger)
+        return self
+
+
+bus = Bus(60, 3, 80)
+bus.embark("Zuckerberg", "Travolta", "Diesel")
+print(bus.passenger_list)
+print(bus.available_seats)
+print(bus.seats_in_bus)
