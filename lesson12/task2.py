@@ -5,7 +5,6 @@ class BeeElephant:
         else:
             self.bee = bee
             self.elephant = elephant
-        print(bee, elephant)
 
     def fly(self):
         if self.bee >= self.elephant:
@@ -20,7 +19,6 @@ class BeeElephant:
             return "wzzzz"
 
     def eat(self, meal, value):
-        import math
         if not meal == 'nectar' and not meal == 'grass':
             raise TypeError
         if meal == 'nectar':
@@ -38,9 +36,12 @@ class BeeElephant:
         elif self.bee < 0:
             self.bee = 0
 
-        print(self.bee, self.elephant)
+        return self.bee, self.elephant
 
 
 bee_elephant = BeeElephant(6, 7)
 
-bee_elephant.eat('nectar', 98)
+bee_elephant.eat('nectar', 6)
+
+print(bee_elephant.eat("nectar", 3))
+print(bee_elephant.eat("grass", 7))
