@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+<body>
+    <h1>Library menu</h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+{% block content %}
+<form action="{{ url_for('books.show_all_books') }}" method="GET">
+    <button type="submit" class="btn btn-outline-dark">Show books</button>
+</form>
+
+<form action="{{ url_for('authors.show_authors') }}" method="GET">
+    <button type="submit" class="btn btn-outline-dark">Show Authors</button>
+</form>
+
+<form action="{{ url_for('authors.add_author') }}" method="GET">
+    <button type="submit" class="btn btn-outline-dark">Add author</button>
+</form>
+
+<form action="{{ url_for('books.add_book') }}" method="GET">
+    <button type="submit" class="btn btn-outline-dark">Add book</button>
+</form>
+
+<form action="{{ url_for('books.update_book') }}" method="GET">
+    <button type="submit" class="btn btn-outline-dark">Update book</button>
+</form>
+
+<form action="{{ url_for('books.delete_book') }}" method="GET">
+    <button type="submit" class="btn btn-outline-dark">Delete book</button>
+</form>
+
+<form action="{{ url_for('books.find_book') }}" method="GET">
+    <button type="submit" class="btn btn-outline-dark">Find book</button>
+</form>
+
+<form action="{{ url_for('home') }}" method="GET">
+    <button type="submit" class="btn btn-outline-danger">Exit menu</button>
+</form>
+{% endblock %}
