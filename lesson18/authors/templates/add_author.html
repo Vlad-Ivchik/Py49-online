@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="{{ url_for('authors.add_author') }}" method="POST">
+    <label for="author_name">Enter name author:</label>
+    <input id="author_name" name="author_name" type="text">
+    <button type="submit" class="btn btn-outline-success">Add New Author</button>
+</form>
+
+<form action="{{ url_for('menu') }}" method="GET">
+    <button type="submit" class="btn btn-outline-dark">Go to menu</button>
+</form>
+
+<form action="{{ url_for('authors.show_authors') }}" method="GET">
+    <button type="submit" class="btn btn-outline-dark">Go to all authors</button>
+</form>
+
+{% endblock %}

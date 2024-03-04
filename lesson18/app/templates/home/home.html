@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{{ url_for('menu') }}" method="GET">
+    <button type="submit" class="btn btn-outline-success">Go to library</button>
+</form>
+
+{% endblock %}
