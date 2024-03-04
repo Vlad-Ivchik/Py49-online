@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="{{ url_for('find_book') }}" method="POST">
+    <label for="book_name">Enter name book:</label>
+    <input id="book_name" name="book_name" type="text">
+    <button type="submit" class="btn btn-outline-success">Enter book name</button>
+</form>
+
+<form action="{{ url_for('menu') }}" method="GET">
+    <button type="submit" class="btn btn-outline-dark">Go to menu</button>
+</form>
+<form action="{{ url_for('show_all_books') }}" method="GET">
+    <button type="submit" class="btn btn-outline-dark">Go to all books</button>
+</form>
+{% endblock %}
